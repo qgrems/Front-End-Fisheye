@@ -4,7 +4,7 @@ async function getPhotographers() {
     fetch('data/photographers.json')
     .then(response => response.json())
     .then(data => {
-        console.log(data); // data contient à la fois les données de photographes et les médias
+         // data contient à la fois les données de photographes et les médias
         displayData(data.photographers)
     }); 
 }
