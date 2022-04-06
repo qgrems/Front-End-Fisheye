@@ -1,8 +1,7 @@
-
 function photographerFactory(data) {
     const { name, portrait,city,country,tagline,price,id,oneclick } = data;
-   
-    const picture = `assets/photographers/${portrait}`;
+
+    const picture = `Sample Photos/Photographers ID Photos/${portrait}`;
     function getUserCardDOM() {
 
         const article = document.createElement('article');
@@ -11,16 +10,16 @@ function photographerFactory(data) {
         img.setAttribute("src", picture);
         img.id = `${id}`
 
-        const a = document.createElement('a')
-        a.setAttribute("href", "photographer.html");
 
 
         const h2 = document.createElement( 'h2');
         h2.textContent = name;
         h2.id = `${id}`
+        const a = document.createElement('a');
+        a.setAttribute("href", `http://127.0.0.1:5500/Front-End-Fisheye/photographer.html?${id}`);
 
         const b = document.createElement('a')
-        b.setAttribute("href", "photographer.html");
+        b.setAttribute("href", `http://127.0.0.1:5500/Front-End-Fisheye/photographer.html?${id}`);
         
         const city_country = document.createElement('h3')
         city_country.textContent = `${city}, ${country} `;

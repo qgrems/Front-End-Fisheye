@@ -1,6 +1,10 @@
 #contact_modal {
     display: none;
 }
+.contact_modal
+{
+    display: none;
+}
 
 .photograph-header {
     background-color: #FAFAFA;
@@ -22,6 +26,11 @@
 }
 
 .modal {
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    overflow: auto;
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
@@ -31,6 +40,7 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    position: fixed;
 }
 
 .modal header {
@@ -65,7 +75,6 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
 }
 
 form input {
@@ -73,4 +82,57 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+
+.text-control
+{
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 20px;
+    height: 48px;
+}
+
+/*Modal photography*/
+
+.modalPhoto header img {
+    cursor: pointer;
+}
+
+.photo
+{
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modalPict
+{
+    display: none; 
+}
+.modalPhoto
+{
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    overflow: auto;
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+    position: fixed;
+}
+#linkImg
+{
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 2%;
 }

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://kit.fontawesome.com/2dfd58bbfe.js" crossorigin="anonymous"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/media.css" rel="stylesheet" type="text/css" /> 
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <script src="https://kit.fontawesome.com/2dfd58bbfe.js" crossorigin="anonymous"></script>    <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
@@ -16,25 +17,79 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photograph-header_history">
+          <h1 id ="name_photographer" ></h1>
+          <p id = "cityCountry"></p>
+          <p id = "tagline"> </p>
+        </div>
+        <button class="contact_button" onclick="launchModal()">Contactez-moi</button>
+        <img id = "photoProfile"></img>
       </div>
       <div class="photographer_media"></div>
     </main>
+
+
     <div id="contact_modal">
-			<div class="modal">
+
+			<div class="modal" id="sendMessage">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img class= "closeModal" src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
+
+        <form name="" action="" method="get" onsubmit="">
+
+          <div class="formData">
+            <label>Prénom</label>
+            <br>
+            <input class="text-control" type="text" id="firstName" name="first">
+            <div id="erreur_firstName"></div>
+            <br>
+          </div>
+
+          <div class="formData">
+            <label>Nom</label>
+            <br>
+            <input class="text-control" type="text" id="lastName" name="last">
+            <div id="erreur_lastName"></div>
+            <br>
+          </div>
+
+          <div class="formData">
+            <label>Email</label>
+            <br>
+            <input class="text-control" type="email" id="mail" name="email">
+            <div id="erreur_email"></div>
+            <br>
+          </div>
+
+          <div class="formData">
+            <label>Votre message</label>
+            <br>
+            <input class="text-control" type="text" id="message">
+            <br>
+          </div>
+
+          <button class="contact_button" type="submit">Envoyer</button>
+
 				</form>
 			</div>
-		</div>
+  	</div>
+
+    <div id="picture_modal" class="modalPict ">
+      <div class="modalPhoto">
+      <header>
+        <img class= "closeModal" src="assets/icons/close.svg" onclick="closeModalPhoto()" />
+      </header>
+      <div>
+        <img id="linkImg" src=""/>
+      </div>
+      </div>
+    </div>
+
+    <script src="scripts/factories/lightbox-modal.js"></script>
+    <script src="scripts/factories/modal-contact.js"></script>
+    <script src = "scripts/factories/factory.js"></script>
     <script src="scripts/factories/photographer_media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     
