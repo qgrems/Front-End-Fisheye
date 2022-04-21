@@ -16,8 +16,10 @@ async function getId(){
 
 async function displayData(data) {
     // recuperation de l ' ID
+
+    //chercher url search param pour plus tard w3school
     const queryString_url_id = window.location.search;
-    // transformation de l' id en nombre et couper pour enlever ? lors de la recuperation
+    // transformation de l' id en nombre et couper pour enlever '?' lors de la recuperation
     var leId = Number(queryString_url_id.slice(1)); 
  
     var ident = document.getElementById('id');

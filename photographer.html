@@ -25,7 +25,12 @@
         <button class="contact_button" onclick="launchModal()">Contactez-moi</button>
         <img id = "photoProfile"></img>
       </div>
-      <div class="photographer_media"></div>
+      <div class="photographer_media">
+        <div id="container_like_price">
+          <div id = "likes"></div>
+          <div id="price"></div>
+        </div>
+      </div>
     </main>
 
 
@@ -63,10 +68,10 @@
             <br>
           </div>
 
-          <div class="formData">
+          <div class="formData ">
             <label>Votre message</label>
             <br>
-            <input class="text-control" type="text" id="message">
+            <input class="text-control messagesize" type="text" id="message">
             <br>
           </div>
 
@@ -78,15 +83,15 @@
 
     <div id="picture_modal" class="modalPict ">
       <div class="modalPhoto">
-      <header>
-        <img class= "closeModal" src="assets/icons/close.svg" onclick="closeModalPhoto()" />
-      </header>
-      <div>
-        <img id="linkImg" src=""/>
-      </div>
+        <section class="modalSize">
+          <button class="precedent_suivant" id="precedent"> &lt; </button>
+          <img id="linkImg"/>
+          <button class="precedent_suivant" id="suivant"> &gt; 
+          </button>
+          <button class=" closePhoto " onclick="closeModalPhoto()">X</button>
+        </section>
       </div>
     </div>
-
     <script src="scripts/factories/lightbox-modal.js"></script>
     <script src="scripts/factories/modal-contact.js"></script>
     <script src = "scripts/factories/factory.js"></script>
