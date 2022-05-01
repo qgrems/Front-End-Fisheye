@@ -1,47 +1,52 @@
-//Mettre le code JavaScript lié à la page photographer.html
-async function getPhotographers() {
+
+class App
+{
     // Penser à remplacer par les données récupérées dans le json
-    fetch('data/photographers.json')
-    .then(response => response.json())
-    .then(data => {
+    constructor()
+    {
+        this.mediaSection = document.querySelector(".photographer_media");
+        this.photographerApi = new PhotographerApi('./data/photographers.json')         
+    }
+
+
+    async main() 
+    {
+            //chercher url search param pour plus tard w3school
+            const queryString_url_id = window.location.search;
+            // transformation de l' id en nombre et couper pour enlever '?' lors de la recuperation
+            var leId = Number(queryString_url_id.slice(1));
+            
+        const mediaData = await this.photographerApi.getPhotographers()
        
-         // data contient à la fois les données de photographes et les médias
-        displayData(data)
+        // filtrer les data avec le id de l' image cliqué
+        const photographer = mediaData.photographers.filter(photographer => photographer.id === leId)
+        const medias = mediaData.media.filter(medias => medias.photographerId === leId)
 
-    }); 
-}
-async function getId(){
+        // tableau de likes
+        const sumLikes = Array.from(medias, e => parseFloat(e.likes));
+        allLikes(sumLikes)
+           
 
-}
+        medias.forEach((media) => {
+           
+            const mediaModel = new Medias(media);
+            const getUserCardDOM = mediaModel.render(photographer[0], media);
+             // gestion affichage video / photo
+             const multiMedia = new multimedia(media,photographer[0]);
+             const getUserCardDOMMedia = multiMedia.render(media,photographer[0].name);
 
-async function displayData(data) {
-    // recuperation de l ' ID
+             //gestion affichage likes et prix
+             const likesPrice = new LikesPrice(media,photographer[0]);
+             const getUserCardDOMMedialikesprice = likesPrice.render(media,photographer[0]);
 
-    //chercher url search param pour plus tard w3school
-    const queryString_url_id = window.location.search;
-    // transformation de l' id en nombre et couper pour enlever '?' lors de la recuperation
-    var leId = Number(queryString_url_id.slice(1)); 
- 
-    var ident = document.getElementById('id');
-    const photographersSection = document.querySelector(".photographer_media");
-    const photographer = data.photographers.filter(photographer => photographer.id === leId)
-    const medias = data.media.filter(medias => medias.photographerId === leId)
- 
-    medias.forEach((media) => {
+             this.mediaSection.appendChild(getUserCardDOMMedia);
 
-        const photographerModel = mediaFactory(photographer[0], media);
-        const userCardDOM = photographerModel.getUserCardDOM();
-        photographersSection.appendChild(userCardDOM);
-    });
- 
-};
-
-async function init() {
-    // Récupère les datas des photographes
-  
-    getPhotographers()
-
+        });
     
-};
+    }
+}
 
-init();
+
+const app = new App()
+app.main();
+

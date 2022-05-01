@@ -23,6 +23,12 @@ a{
     object-fit: cover;
     border-radius: 2%;
 }
+.photographer_media article video {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 2%;
+}
 .photographer_media article h2
 {
     display: flex;
