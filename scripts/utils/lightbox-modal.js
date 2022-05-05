@@ -8,11 +8,12 @@ function launchModalPhoto(photographerId,imageId,namePhotographer)
   {
     console.log(photographerId,imageId,namePhotographer)
     oModal.style.display = "block";
+
   }
- function afficheMedia(photographerId,index)
+function afficheMedia(photographerId,index,namePhotographer)
   {
     console.log(index)
-    document.getElementById("linkImg").src=`Sample Photos/Mimi/${photographerId[index].image}`;
+    document.getElementById("linkImg").src=`Sample Photos/${namePhotographer}/${photographerId[index].image}`;
 
     document.getElementById('precedent').onclick = () =>{
       index--

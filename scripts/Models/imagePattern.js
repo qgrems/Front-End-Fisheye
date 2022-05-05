@@ -64,10 +64,10 @@ class Image
 
     render() 
     {
-        console.log(this._slice)
+        console.log(this._photographerId)
         const article = document.createElement('article');
         article.innerHTML= `
-        <img class="openModal" src= "${this.image}" onclick=launchModalPhoto(${this._photographerId},${this._id},${this._slice})>
+        <img class="openModal" src= "${this.image}" onclick=launchModalPhoto(${this._photographerId},${this._id})>
         <footer>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 
