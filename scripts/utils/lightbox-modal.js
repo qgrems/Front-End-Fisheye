@@ -8,6 +8,9 @@ function launchModalPhoto(photographerId,imageId,namePhotographer)
   {
     console.log(photographerId,imageId,namePhotographer)
     oModal.style.display = "block";
+    let indexMedia
+    indexMedia= mediaData.media.findIndex(e => e.id === medias[0].id)
+    console.log(indexMedia)
 
   }
 function afficheMedia(photographerId,index,namePhotographer)

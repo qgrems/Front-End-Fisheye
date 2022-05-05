@@ -10,7 +10,7 @@ class ModalPhoto
         this._slice = sliceName
         this._idImage = dataImage.id
         this._data = photographerData
-        
+        console.log(indexMedia,tableMedia)
     }
 
     get index()
@@ -43,7 +43,7 @@ class ModalPhoto
     
     render()
     {
-        console.log(this._image)
+        console.log(this.image)
         const article = document.createElement('article');
         article.innerHTML= `
         <div class="modalPhoto">

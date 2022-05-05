@@ -40,13 +40,14 @@ class App
         
         // recuperation du name slice dans une variable
         const sliceName = slice_name(photographer[0].name)
-
+        
         // image modal
         let indexMedia
-        indexMedia= photographer.findIndex(e => e.id === medias[0].id)
+        indexMedia= medias.findIndex(e => e.id === medias[0].id)
+        console.log(indexMedia)
 
         //modal photo
-        const modalPhotos = new ModalPhoto(sliceName,photographer[0],medias[0],indexMedia,photographer)
+        const modalPhotos = new ModalPhoto(sliceName,photographer[0],medias[0],indexMedia,medias)
         this.modalPicture.appendChild(modalPhotos.render())
         console.log(sliceName)
         // Incrementation likes
