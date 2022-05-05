@@ -5,7 +5,10 @@ class App
     constructor()
     {
         this.mediaSection = document.querySelector(".photographer_media");
-        this.photographerApi = new PhotographerApi('./data/photographers.json')         
+        this.photographerHeader = document.querySelector(".photograph-header");
+        this.likePrice = document.querySelector("#container_like_price");
+        this.modalPicture = document.querySelector("#picture_modal");
+        this.photographerApi = new PhotographerApi('./data/photographers.json');
     }
 
 
@@ -17,29 +20,51 @@ class App
             var leId = Number(queryString_url_id.slice(1));
             
         const mediaData = await this.photographerApi.getPhotographers()
-       
+        
+        
         // filtrer les data avec le id de l' image cliqué
         const photographer = mediaData.photographers.filter(photographer => photographer.id === leId)
         const medias = mediaData.media.filter(medias => medias.photographerId === leId)
 
+        
         // tableau de likes
         const sumLikes = Array.from(medias, e => parseFloat(e.likes));
-        allLikes(sumLikes)
-           
+       
+        
+        const likePriceModel = new LikesPrice(allLikes(sumLikes),photographer[0].price)
+        this.likePrice.appendChild(likePriceModel.render())
+
+        //header
+        const photographerModel = new Photographers(photographer[0])
+        this.photographerHeader.appendChild(photographerModel.renderBandeau())
+        
+        // recuperation du name slice dans une variable
+        const sliceName = slice_name(photographer[0].name)
+
+        //modal photo
+        const modalPhotos = new ModalPhoto(sliceName,photographer[0],medias[0])
+        this.modalPicture.appendChild(modalPhotos.render())
+
+        // Incrementation likes
 
         medias.forEach((media) => {
-           
-            const mediaModel = new Medias(media);
-            const getUserCardDOM = mediaModel.render(photographer[0], media);
+           let mediaModel;
+            //const mediaModel = new Medias(media);
+           // const getUserCardDOM = mediaModel.render(photographer[0], media);
              // gestion affichage video / photo
-             const multiMedia = new multimedia(media,photographer[0]);
-             const getUserCardDOMMedia = multiMedia.render(media,photographer[0].name);
+             if (media.video)
+             {
+                mediaModel = multimedia(media,photographer[0],sliceName,'video')
+             }
+            else{
+                 mediaModel = multimedia(media,photographer[0],sliceName,'image')
+            }
 
-             //gestion affichage likes et prix
-             const likesPrice = new LikesPrice(media,photographer[0]);
-             const getUserCardDOMMedialikesprice = likesPrice.render(media,photographer[0]);
+            //gestion affichage likes et prix
+            // const likesPrice = new LikesPrice(media,photographer[0]);
+            //const getUserCardDOMMedialikesprice = likesPrice.render(media,photographer[0]);
 
-             this.mediaSection.appendChild(getUserCardDOMMedia);
+             this.mediaSection.appendChild(mediaModel.render());
 
         });
     

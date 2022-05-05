@@ -2,9 +2,8 @@
 
 class Image
 {
-    constructor	(data,sliceName,photographerPrice)
+    constructor	(data,sliceName,dataphotographer)
     {
-        this._photographerPrice = photographerPrice
         this._type = 'photo'
         this._id = data.id
         this._photographerId = data.photographerId
@@ -14,22 +13,23 @@ class Image
         this._date = data.date
         this._price = data.price
         this._slice = sliceName
-
-
+        this._photographerName = dataphotographer.name   
     }
-    
-    get name()
+    get photographerName()
     {
-        return this._name
+        return this._photographerName
     }
 
     get type()
     {
         return this._type
     }
+
     get image()
     {
-        return  `SamplePhotos/${this._slice}/${this._image}`    }
+        return  `SamplePhotos/${this._slice}/${this._image}`    
+    }
+
     get id()
     {
         return this._id
@@ -45,7 +45,6 @@ class Image
         return this._title
     }
 
-
     get likes(){
         return this._likes
     }
@@ -58,21 +57,24 @@ class Image
     {
         return this._price
     }
-  
-
-        
-       
-       
-    render(mediadata,photographerName) 
+    get nameslice()
     {
+        return this._slice
+    }
+
+    render() 
+    {
+        console.log(this._slice)
         const article = document.createElement('article');
         article.innerHTML= `
-        <img class="openModal" src= "${this.image}" onclick=launchModalPhoto(${this._photographerId})>
+        <img class="openModal" src= "${this.image}" onclick=launchModalPhoto(${this._photographerId},${this._id},${this._slice})>
         <footer>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 
-            <p class="like_margin">${this._likes}</p>
-            <i class="fas fa-heart"></i>
+            <button onclick=launchIncrementLikes(${this._likes})  class="button_heart">
+                <p class="like_margin">${this._likes}</p>
+                <i class="fas fa-heart"></i>
+            </button>
             </div>
         </footer>`
         return article

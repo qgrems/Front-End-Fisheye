@@ -1,17 +1,25 @@
 class LikesPrice
 {
+  constructor(likes,price)
+  {
+    this._likes = likes
+    this._price = price
+  }
 
-    render(likes,price)
+  get likes(){
+    return this._likes
+  }
+
+  get price(){
+    return this._price
+  }
+
+    render()
     {
-        
-        const prices = price.price
-
-        const section = document.createElement('section');
+        const section = document.createElement('div');
         section.innerHTML=`
-        <div id="container_like_price">
-          <div id = "likes"></div>
-          <div id="price"></div>
-        </div>`
+          <div id = "price">${this.likes} <i class = "full_likes fas fa-heart"></i> </div>
+          <div id="price">${this.price}€ / jour</div>`
         return section
     }
 }

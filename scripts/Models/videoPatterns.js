@@ -10,8 +10,7 @@ class Video
         this._date = data.date
         this._price = data.price
         this._video = data.video
-        this._slice = sliceName
-        
+        this._slice = sliceName   
     }
     get type()
     {
@@ -33,7 +32,7 @@ class Video
     }
 
     get video(){
-        return  `SamplePhotos/${this._slice}/${this._image}`
+        return  `SamplePhotos/${this._slice}/${this._video}`
     }
     
     get likes(){
@@ -49,18 +48,17 @@ class Video
         return this._price
     }
 
-
     render(data) 
     {
         const article = document.createElement('article');
         article.innerHTML= `
 
-        <video  class= " "src= "${this.video}"></video>
+        <video  class= "" src= "${this.video}"></video>
         <footer>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 
-            <p class="like_margin>${this._likes}</p>
-            <i class="fas fa-heart"></i>
+            <p class="like_margin">${this._likes}</p>
+            <button onclick=launchIncrementLikes class="button_heart"><i class="fas fa-heart "></i></button>
             </div>
         </footer>`
         return article

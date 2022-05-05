@@ -16,18 +16,9 @@
       </a>
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <div class="photograph-header_history">
-          <h1 id ="name_photographer" ></h1>
-          <p id = "cityCountry"></p>
-          <p id = "tagline"> </p>
-        </div>
-        <button class="contact_button" onclick="launchModal()">Contactez-moi</button>
-        <img id = "photoProfile"></img>
-      </div>
-      <div class="photographer_media">
-        
-      </div>
+      <div class="photograph-header"></div>
+      <div class="photographer_media"></div>
+      <div id="container_like_price"></div>
     </main>
 
 
@@ -78,44 +69,26 @@
 			</div>
   	</div>
 
-    <div id="picture_modal" class="modalPict ">
-      <div class="modalPhoto">
-        <section class="modalSize">
-          <button class="precedent_suivant" id="precedent"> &lt; </button>
-          <img id="linkImg"/>
-          <button class="precedent_suivant" id="suivant"> &gt; 
-          </button>
-          <button class=" closePhoto " onclick="closeModalPhoto()">X</button>
-        </section>
-      </div>
-    </div>
+    <div id="picture_modal" class="modalPict"></div>
   </div>
 
     <script src="scripts/factories/factoryImagesVideos.js"></script>
 
-    <script src="scripts/Models/mediaPattern.js"></script>
     <script src="scripts/Models/imagePattern.js"></script>
     <script src="scripts/Models/videoPatterns.js"></script>
     <script src="scripts/Models/photographerPattern.js"></script>
     <script src="scripts/Models/likesprice.js"></script>
-
-    <script src="scripts/utils/counter_like.js"></script>
+    <script src="scripts/Models/modalPhoto.js"></script>
 
     <script src="scripts/API/photographerApi.js"></script>
 
-   
     <script src="scripts/pages/photographer.js"></script>
-    
 
-    <script src="scripts/factories/modal-contact.js"></script>
+    <script src="scripts/utils/counter_like.js"></script>
+    <script src="scripts/utils/modal-contact.js"></script>
+    <script src="scripts/utils/lightbox-modal.js"></script>
+    <script src="scripts/utils/sliceName.js"></script>
+    <script src="scripts/utils/incrementation_likes.js"></script>
 
-  
-
-
-    <script src="scripts/factories/lightbox-modal.js"></script>
-    <script src="scripts/utils/slice.js"></script>
-
-    
-    
   </body>
 </html>

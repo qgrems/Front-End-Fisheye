@@ -4,16 +4,15 @@ const openModal = document.querySelectorAll(".photo");
 // launch modal event
 let tableMedia;
 
-function launchModalPhoto(photographerId) {
-    console.log(photographerId);
-      oModal.style.display = "block";
-
+function launchModalPhoto(photographerId,imageId,namePhotographer) 
+  {
+    console.log(photographerId,imageId,namePhotographer)
+    oModal.style.display = "block";
   }
-
-  function afficheMedia(index,nomPhotographe)
+ function afficheMedia(photographerId,index)
   {
     console.log(index)
-    document.getElementById("linkImg").src=`Sample Photos/${nomPhotographe}/${tableMedia[index].image}`;
+    document.getElementById("linkImg").src=`Sample Photos/Mimi/${photographerId[index].image}`;
 
     document.getElementById('precedent').onclick = () =>{
       index--

@@ -72,4 +72,20 @@ class Photographers
 
         return article
     }
+    renderBandeau() {
+
+        const article = document.createElement('div');
+        article.innerHTML= `
+        <div class="photograph-header_history">
+          <h1 id ="name_photographer" >${this.name}</h1>
+          <p id = "cityCountry">${this.city}, ${this.country}</p>
+          <p id = "tagline">${this.tagline} </p>
+        </div>
+            <button class="contact_button" onclick="launchModal()">Contactez-moi</button>
+            <img id = "photoProfile" src="${this.portrait}"></img>
+        `        
+        return article
+    }
+
+
 }
