@@ -1,8 +1,8 @@
 #contact_modal {
     display: none;
 }
-.contact_modal
-{
+
+.contact_modal {
     display: none;
 }
 
@@ -86,8 +86,7 @@ form input {
 }
 
 
-.text-control
-{
+.text-control {
     margin: 0;
     width: 100%;
     border-radius: 8px;
@@ -101,18 +100,16 @@ form input {
     cursor: pointer;
 }
 
-.photo
-{
+.photo {
     border-radius: 5px;
     cursor: pointer;
 }
 
-.modalPict
-{
-    display: none; 
+.modalPict {
+    display: none;
 }
-.modalPhoto
-{
+
+.modalPhoto {
     z-index: 1;
     top: 0;
     right: 0;
@@ -128,8 +125,8 @@ form input {
     margin: auto;
     position: fixed;
 }
-#linkImg
-{
+
+#linkImg {
     max-width: 500px;
     height: 100%;
     width: 100%;
@@ -138,13 +135,18 @@ form input {
     object-position: center;
 }
 
-.messagesize
-{
+#linkImg>* {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    max-height: 620px;
+}
+
+.messagesize {
     height: 200px;
 }
 
-#container_like_price >*
-{
+#container_like_price>* {
     background-color: #D3573C;
     width: 225px;
     height: 50px;
@@ -152,22 +154,22 @@ form input {
     bottom: 0;
     position: fixed;
     right: 5rem;
-    border-radius: 2% ;
+    border-radius: 2%;
 }
-#price
-{
+
+#price {
     text-align: center;
     font-size: 20px;
     margin: auto;
 }
-.full_likes
-{
+
+.full_likes {
     margin: auto;
     font-size: 15px;
 }
-.closePhoto
-{
-    
+
+.closePhoto {
+
     display: flex;
     right: 16rem;
     top: 11rem;
@@ -179,15 +181,14 @@ form input {
     margin-left: -30px;
 }
 
-.modalSize{
+.modalSize {
     width: 50vw;
     height: 70vh;
     display: flex;
     justify-content: center;
 }
 
-.precedent_suivant
-{
+.precedent_suivant {
     border: none;
     background-color: transparent;
     color: #901C1C;

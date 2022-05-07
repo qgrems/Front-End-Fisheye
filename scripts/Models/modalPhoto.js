@@ -41,7 +41,7 @@ class ModalPhoto
         this._slice = sliceName
     }
     
-    render()
+    renderLightbox()
     {
         console.log(this.image)
         const article = document.createElement('article');
@@ -58,4 +58,5 @@ class ModalPhoto
         `
         return article
     }
+
 }

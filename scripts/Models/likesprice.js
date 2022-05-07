@@ -4,6 +4,7 @@ class LikesPrice
   {
     this._likes = likes
     this._price = price
+    console.log(this._likes)
   }
 
   get likes(){

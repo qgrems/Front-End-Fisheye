@@ -1,96 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://kit.fontawesome.com/2dfd58bbfe.js" crossorigin="anonymous"></script>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/media.css" rel="stylesheet" type="text/css" /> 
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/2dfd58bbfe.js" crossorigin="anonymous"></script>    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <a href="index.html">
+
+<head>
+  <script src="https://kit.fontawesome.com/2dfd58bbfe.js" crossorigin="anonymous"></script>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="css/media.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2dfd58bbfe.js" crossorigin="anonymous"></script>
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
       <img src="assets/images/logo.png" class="logo" />
-      </a>
-    </header>
-    <main id="main">
-      <div class="photograph-header"></div>
-      <div class="photographer_media"></div>
-      <div id="container_like_price"></div>
-    </main>
+    </a>
+  </header>
+  <main id="main">
+    <div class="photograph-header"></div>
+    <div class="photographer_media"></div>
+    <div id="container_like_price"></div>
+  </main>
 
 
-    <div id="contact_modal">
+  <div id="contact_modal">
 
-			<div class="modal" id="sendMessage">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img class= "closeModal" src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
+    <div class="modal" id="sendMessage">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img class="closeModal" src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
 
-        <form name="" action="" method="get" onsubmit="">
+      <form name="" action="" method="get" onsubmit="">
 
-          <div class="formData">
-            <label>Prénom</label>
-            <br>
-            <input class="text-control" type="text" id="firstName" name="first">
-            <div id="erreur_firstName"></div>
-            <br>
-          </div>
+        <div class="formData">
+          <label>Prénom</label>
+          <br>
+          <input class="text-control" type="text" id="firstName" name="first">
+          <div id="erreur_firstName"></div>
+          <br>
+        </div>
 
-          <div class="formData">
-            <label>Nom</label>
-            <br>
-            <input class="text-control" type="text" id="lastName" name="last">
-            <div id="erreur_lastName"></div>
-            <br>
-          </div>
+        <div class="formData">
+          <label>Nom</label>
+          <br>
+          <input class="text-control" type="text" id="lastName" name="last">
+          <div id="erreur_lastName"></div>
+          <br>
+        </div>
 
-          <div class="formData">
-            <label>Email</label>
-            <br>
-            <input class="text-control" type="email" id="mail" name="email">
-            <div id="erreur_email"></div>
-            <br>
-          </div>
+        <div class="formData">
+          <label>Email</label>
+          <br>
+          <input class="text-control" type="email" id="mail" name="email">
+          <div id="erreur_email"></div>
+          <br>
+        </div>
 
-          <div class="formData ">
-            <label>Votre message</label>
-            <br>
-            <input class="text-control messagesize" type="text" id="message">
-            <br>
-          </div>
+        <div class="formData ">
+          <label>Votre message</label>
+          <br>
+          <input class="text-control messagesize" type="text" id="message">
+          <br>
+        </div>
 
-          <button class="contact_button" type="submit">Envoyer</button>
+        <button class="contact_button" type="submit">Envoyer</button>
 
-				</form>
-			</div>
-  	</div>
-
-    <div id="picture_modal" class="modalPict"></div>
+      </form>
+    </div>
   </div>
 
-    <script src="scripts/factories/factoryImagesVideos.js"></script>
+  <div id="picture_modal" class="modalPict">
+    <div class="modalPhoto">
+      <section class="modalSize">
+        <button class="precedent_suivant" id="precedent"> &lt; </button>
+        <div id="linkImg"></div>
+        <button class="precedent_suivant" id="suivant"> &gt;
+        </button>
+        <button class=" closePhoto " onclick="app.modalMedia.closeModalPhoto()">X</button>
+      </section>
+    </div>
+  </div>
 
-    <script src="scripts/utils/counter_like.js"></script>
-    <script src="scripts/utils/modal-contact.js"></script>
-    <script src="scripts/utils/lightbox-modal.js"></script>
-    <script src="scripts/utils/sliceName.js"></script>
-    <script src="scripts/utils/incrementation_likes.js"></script>
-    
-    <script src="scripts/Models/imagePattern.js"></script>
-    <script src="scripts/Models/videoPatterns.js"></script>
-    <script src="scripts/Models/photographerPattern.js"></script>
-    <script src="scripts/Models/likesprice.js"></script>
-    <script src="scripts/Models/modalPhoto.js"></script>
+  <script src="scripts/factories/factoryImagesVideos.js"></script>
 
-    <script src="scripts/API/photographerApi.js"></script>
+  <script src="scripts/utils/counter_like.js"></script>
+  <script src="scripts/utils/modal-contact.js"></script>
+  <script src="scripts/utils/lightbox-modal.js"></script>
+  <script src="scripts/utils/sliceName.js"></script>
+  <script src="scripts/utils/incrementation_likes.js"></script>
 
-    <script src="scripts/pages/photographer.js"></script>
+  <script src="scripts/Models/imagePattern.js"></script>
+  <script src="scripts/Models/videoPatterns.js"></script>
+  <script src="scripts/Models/photographerPattern.js"></script>
+  <script src="scripts/Models/likesprice.js"></script>
+  <script src="scripts/Models/modalPhoto.js"></script>
+  <script src="scripts/Models/incrementLikes.js"></script>
+
+  <script src="scripts/API/photographerApi.js"></script>
+
+  <script src="scripts/pages/photographer.js"></script>
 
 
 
-  </body>
+</body>
+
 </html>

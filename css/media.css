@@ -102,4 +102,7 @@ a{
     border: none;
     background-color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    color:#901C1C ;
 }

@@ -1,45 +1,51 @@
-const  oModal = document.querySelector(".modalPict");
-const openModal = document.querySelectorAll(".photo");
-
-// launch modal event
-let tableMedia;
-
-function launchModalPhoto(photographerId,imageId,namePhotographer) 
+class ModalMedia {
+  constructor(photographe, tabMedia) {
+    this._photographe = photographe
+    this._tabMedia = tabMedia
+    this.oModal = document.querySelector(".modalPict");
+  }
+  get photographe() {
+    return this._photographe
+  }
+  get tabMedia() {
+    return this._tabMedia
+  }
+  launchModalPhoto(imageId) 
   {
-    console.log(photographerId,imageId,namePhotographer)
-    oModal.style.display = "block";
+    //console.log(photographerId,imageId,namePhotographer)
+    this.oModal.style.display = "block";
     let indexMedia
-    indexMedia= mediaData.media.findIndex(e => e.id === medias[0].id)
+    indexMedia = this.tabMedia.findIndex(e => e.id === imageId)
     console.log(indexMedia)
+    this.afficheMedia(indexMedia)
 
   }
-function afficheMedia(photographerId,index,namePhotographer)
-  {
-    console.log(index)
-    document.getElementById("linkImg").src=`Sample Photos/${namePhotographer}/${photographerId[index].image}`;
 
-    document.getElementById('precedent').onclick = () =>{
+  closeModalPhoto() {
+    this.oModal.style.display = "none";
+  }
+
+  afficheMedia(index) {
+
+    document.getElementById("linkImg").innerHTML = ""
+    document.getElementById("linkImg").appendChild(this.tabMedia[index].renderModal())
+    document.getElementById('precedent').onclick = () => {
       index--
-      if (index < 0)
-      {
-        index = tableMedia.length -1;
+      if (index < 0) {
+        index = this.tabMedia.length - 1;
+        
       }
-      afficheMedia(index,nomPhotographe)
+      this.afficheMedia(index)
     }
 
-    document.getElementById('suivant').onclick = () =>
-    {
+    document.getElementById('suivant').onclick = () => {
       index++
-      if (index > tableMedia.length-1)
-      {
+      if (index > this.tabMedia.length - 1) {
         index = 0;
       }
-      afficheMedia(index,nomPhotographe)
+      this.afficheMedia(index)
     }
 
 
   }
-function closeModalPhoto() {
-    oModal.style.display = "none";
-  }
-  
+}
