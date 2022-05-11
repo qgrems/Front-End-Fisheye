@@ -106,3 +106,37 @@ a{
     align-items: center;
     color:#901C1C ;
 }
+.like_heart
+{
+    display: flex;
+    margin-left: 10px;
+}
+
+.triage
+{
+    margin: 0 100px;
+}
+
+.triage_container
+{
+    display: flex;
+    margin-top: 20px;
+}
+.triage_text
+{
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+.triage_decoration
+{
+    margin-left: 20px;
+    background-color: #901C1C;
+    height: 60px;
+    width: 170px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+}

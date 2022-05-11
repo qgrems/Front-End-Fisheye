@@ -4,7 +4,7 @@ class LikesPrice
   {
     this._likes = likes
     this._price = price
-    console.log(this._likes)
+
   }
 
   get likes(){
@@ -19,8 +19,11 @@ class LikesPrice
     {
         const section = document.createElement('div');
         section.innerHTML=`
-          <div id = "price">${this.likes} <i class = "full_likes fas fa-heart"></i> </div>
-          <div id="price">${this.price}€ / jour</div>`
+          <div class="like_heart">
+          <p id = "like" class="price">${this.likes}</p> 
+           <i class = "full_likes fas fa-heart"></i>
+          </div>
+          <div class="price">${this.price}€ / jour</div>`
         return section
     }
 }

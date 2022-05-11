@@ -6,7 +6,11 @@ class IncrementationLikes
         this._photographe = photographe
         this._tabMedia = medias
         this._nbrLikes = nbrLikes
-        console.log(this.tabMedia)
+        this._id = medias.id       
+    }
+    get id()
+    {
+        return this._id
     }
     get nbrLikes()
     {
@@ -21,30 +25,42 @@ class IncrementationLikes
         return this._tabMedia
     }
     
-    afficheLikes(likes)
+    afficheLikes(likes,idMedia)
     {
         let likesMedia
-        likesMedia = this.tabMedia.findIndex(e => e.likes === likes)
+        likesMedia = this.tabMedia.findIndex(e => e.id === idMedia)
         this.incrementation(likes,likesMedia)
+       
     }
 
     incrementation(likes,likesMedia)
     {
-      
-
         const valeurDeBase = document.querySelectorAll('#likes')
-                if (i<1) {
-                    i++
+        const buttonLike = document.querySelectorAll('#buttonLikes')
+        const liked = buttonLike[likesMedia].classList.toggle('liked')
+                if (liked) {
                     likes +=1
                     valeurDeBase[likesMedia].innerText = likes
-                    console.log(likesMedia)   
+                    this.incrementTotalLikes(this._nbrLikes)
                 }
                 else
                 {
-                    i--
                     valeurDeBase[likesMedia].innerText = likes 
+                    this.decrementTotalLikes(this._nbrLikes)
                 }
-
-        
+    }
+    incrementTotalLikes(likesMedia)
+    {
+        const allLikes = document.querySelectorAll('#like')
+        const addlikes = Array.from(allLikes, e=> Number(e.innerText))
+        const sumValue =  addlikes.reduce((accumulator, currentValue) => accumulator + currentValue);
+        like.innerText = sumValue +1
+    }
+    decrementTotalLikes(likesMedia)
+    {
+        const allLikes = document.querySelectorAll('#like')
+        const addlikes = Array.from(allLikes, e=> Number(e.innerText))
+        const sumValue =  addlikes.reduce((accumulator, currentValue) => accumulator + currentValue);
+        like.innerText = sumValue-1
     }
 }

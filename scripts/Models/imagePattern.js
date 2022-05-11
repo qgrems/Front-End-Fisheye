@@ -57,7 +57,7 @@ class Image {
         <footer>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 
-                <button onclick=app.likesMedia.afficheLikes(${this._likes})  class="button_heart">
+                <button id= "buttonLikes" onclick=app.likesMedia.afficheLikes(${this._likes},${this._id})  class="button_heart">
                 <p id= "likes" class="like_margin addLike">${this.likes}</p>
                     <i class="fas fa-heart"></i>
                 </button>

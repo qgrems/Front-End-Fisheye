@@ -7,7 +7,7 @@ class App {
         this.modalPicture = document.querySelector("#picture_modal");
         this.photographerApi = new PhotographerApi('./data/photographers.json');
         this.modalMedia = ""
-        this.likesMedia ="";
+        this.tri =document.querySelector(".triage");
     }
 
 
@@ -45,31 +45,61 @@ class App {
             const likePriceModel = new LikesPrice(allLikes(sumLikes), photographer[0].price)
             this.likePrice.appendChild(likePriceModel.render())
 
-        // Incrementation likes
-       
+        //tri
+
 
 
         let tabMedia = []
+        const triage = new Triage()
+        this.tri.appendChild(triage.render())
+
+  
+        let value = 0;    
+        const triage2 = document.getElementById('valuetriage')
+       
+        const sortLikes = medias.sort((a,b)=> a.likes - b.likes)
+
         medias.forEach((media) => {
             let mediaModel;
-            //const mediaModel = new Medias(media);
-            // const getUserCardDOM = mediaModel.render(photographer[0], media);
-            // gestion affichage video / photo
-            if (media.video) {
+
+            if (media.video) 
+            {
                 mediaModel = multimedia(media, photographer[0], sliceName, 'video')
             }
-            else {
+            else 
+            {
                 mediaModel = multimedia(media, photographer[0], sliceName, 'image')
             }
 
-            //gestion affichage likes et prix
-            // const likesPrice = new LikesPrice(media,photographer[0]);
-            //const getUserCardDOMMedialikesprice = likesPrice.render(media,photographer[0]);
             tabMedia.push(mediaModel)
-           
-            this.mediaSection.appendChild(mediaModel.render());
+   
+            
+            console.log(value)
+            if (value ===  0)
+            {
+                this.mediaSection.appendChild(mediaModel.render());
+                console.log(this.mediaSection)
+            }
+            triage2.addEventListener('change', function()
+            {
+                value = triage2.value 
+                if (value ===  '1')
+                {
+    
+                }
+                if (value ===  '2')
+                {
+                    this.mediaSection.appendChild(mediaModel.render());
+                }
+                if (value ===  '3')
+                {
+    
+                }
+                console.log(value)
+            })
 
         });
+
         this.likesMedia = new IncrementationLikes(photographerModel,tabMedia,sumLikes)
         this.modalMedia = new ModalMedia(photographerModel, tabMedia)
 

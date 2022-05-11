@@ -12,11 +12,9 @@ class ModalMedia {
   }
   launchModalPhoto(imageId) 
   {
-    //console.log(photographerId,imageId,namePhotographer)
     this.oModal.style.display = "block";
     let indexMedia
     indexMedia = this.tabMedia.findIndex(e => e.id === imageId)
-    console.log(indexMedia)
     this.afficheMedia(indexMedia)
 
   }
@@ -45,7 +43,5 @@ class ModalMedia {
       }
       this.afficheMedia(index)
     }
-
-
   }
 }
