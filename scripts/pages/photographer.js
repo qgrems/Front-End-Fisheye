@@ -45,6 +45,7 @@ class App {
             const likePriceModel = new LikesPrice(allLikes(sumLikes), photographer[0].price)
             this.likePrice.appendChild(likePriceModel.render())
 
+
         //tri
 
 
@@ -57,7 +58,7 @@ class App {
         let value = 0;    
         const triage2 = document.getElementById('valuetriage')
        
-        const sortLikes = medias.sort((a,b)=> a.likes - b.likes)
+       
 
         medias.forEach((media) => {
             let mediaModel;
@@ -70,32 +71,63 @@ class App {
             {
                 mediaModel = multimedia(media, photographer[0], sliceName, 'image')
             }
-
-            tabMedia.push(mediaModel)
-   
-            
-            console.log(value)
-            if (value ===  0)
-            {
-                this.mediaSection.appendChild(mediaModel.render());
-                console.log(this.mediaSection)
-            }
-            triage2.addEventListener('change', function()
-            {
+            this.mediaSection.appendChild(mediaModel.render());
+           
+            triage2.addEventListener('change', (media,mediaSection)=>{
                 value = triage2.value 
-                if (value ===  '1')
-                {
-    
-                }
+                let model
                 if (value ===  '2')
                 {
-                    this.mediaSection.appendChild(mediaModel.render());
+                    const sortLikes = medias.sort((a,b)=> a.likes - b.likes)
+                    sortLikes.forEach((media) => {
+                    if (media.video) 
+                    {
+                        model = multimedia(media, photographer[0], sliceName, 'video')
+                    }
+                    else 
+                    {
+                        model = multimedia(media, photographer[0], sliceName, 'image')
+                    }
+                    this.mediaSection.appendChild(model.render());
+                 })
+                 
                 }
                 if (value ===  '3')
                 {
-    
+                    const sortData = medias.sort(function(a, b){
+                        return a.date.localeCompare(b.date);
+                    })
+                    sortData.forEach((media) => {
+                        if (media.video) 
+                        {
+                            mediaModel = multimedia(media, photographer[0], sliceName, 'video')
+                        }
+                        else 
+                        {
+                            mediaModel = multimedia(media, photographer[0], sliceName, 'image')
+                        }
+                    })
+                    this.mediaSection.appendChild(mediaModel.render());
                 }
-                console.log(value)
+                if (value ===  '4')
+                {
+                    const sortName = medias.sort(function(a, b){
+                        return a.title.localeCompare(b.title);
+                    })
+                    sortName.forEach((media) => {
+                        if (media.video) 
+                        {
+                            mediaModel = multimedia(media, photographer[0], sliceName, 'video')
+                        }
+                        else 
+                        {
+                            mediaModel = multimedia(media, photographer[0], sliceName, 'image')
+                        }
+                    })
+                    this.mediaSection.appendChild(mediaModel.render());
+                }
+                
+                tabMedia.push(mediaModel)
             })
 
         });
