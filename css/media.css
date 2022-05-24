@@ -140,3 +140,12 @@ a{
     padding: 10px;
     font-size: 20px;
 }
+
+.modalTitle
+{
+    font-size: 46px;
+}
+.spaceTitleX
+{
+    justify-content: space-between;
+}

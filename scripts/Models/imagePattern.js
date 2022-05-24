@@ -46,6 +46,7 @@ class Image {
     get price() {
         return this._price
     }
+
     get nameslice() {
         return this._slice
     }
@@ -53,13 +54,13 @@ class Image {
     render() {
         const article = document.createElement('article');
         article.innerHTML = `
-        <img class="openModal" src= "${this.image}" onclick=app.modalMedia.launchModalPhoto(${this._id})>
+        <img id="keyboard" class="openModal" tabindex="4"src= "${this.image}" onclick=app.modalMedia.launchModalPhoto(${this._id})>
         <footer>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 
-                <button id= "buttonLikes" onclick=app.likesMedia.afficheLikes(${this._likes},${this._id})  class="button_heart">
+                <button   id= "buttonLikes" onclick=app.likesMedia.afficheLikes(${this._likes},${this._id})  class="button_heart">
                 <p id= "likes" class="like_margin addLike">${this.likes}</p>
-                    <i class="fas fa-heart"></i>
+                    <i tabindex="5" class="fas fa-heart"></i>
                 </button>
             </div>
         </footer>`

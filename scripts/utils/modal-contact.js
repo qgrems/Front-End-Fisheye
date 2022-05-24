@@ -2,35 +2,59 @@
 // DOM Elements
 const modalbg = document.querySelector("#contact_modal");
 const modalBtn = document.querySelectorAll(".contact_button");
+const contact = document.getElementById('contact_modal')
+const main = document.getElementById('main')
 
-   
+const focusableElementsArray = [
+  '[href]',
+  'button:not([disabled])',
+  'input:not([disabled])',
+  '[main]:not([main="-1"])',
+];
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
+
+
+
 // launch modal form
 function launchModal() {
+  main.tabIndex = -1;
+  modalbg.tabIndex =1;
   modalbg.style.display = "block";
+  
 }
 
 //close modal
 function closeModal() {
+
   modalbg.style.display = "none";
 }
 
 var erreur_firstName;
 var firstName = document.getElementById("firstName");
+
 var erreur_lastName;
 var lastName = document.getElementById("lastName");
+
 var erreur_email;
 var pattern_email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 var email = document.getElementById("mail");
 
+var erreur_message;
+var message = document.getElementById("message");
 
 var firstNameBool = false;
 var lastNameBool = false;
 var emailBool = false;
+var messageBool = false;
 
-function firstNameValid()
+
+
+
+document.getElementById("sendMessage").addEventListener("submit",function(e){
+
+  function firstNameValid()
 {
  
   if (firstName.value === "" || firstName.value.length < 3 || !isNaN(firstName.value))
@@ -86,21 +110,32 @@ function emailValid ()
     document.getElementsByClassName("text-control")[2];
   }
 }
-
-
-
-
-document.getElementById("sendMessage").addEventListener("submit",function(e){
+function messageValid()
+{
+  if (message.value === "" || message.value.length < 9)
+  {
+    document.getElementById('erreur_message').innerHTML = "Veuillez entrer 9 caractères ou plus pour le champ du message."
+    document.getElementsByClassName("text-control")[1];
+  }
+  else 
+  {
+    messageBool = true;
+    document.getElementById('erreur_message').innerHTML = ""
+    document.getElementsByClassName("text-control")[1];
+  }
+} 
 
     e.preventDefault();
-
     firstNameValid();
     lastNameValid();
     emailValid();
-    if(firstNameBool === true && lastNameBool === true  && emailBool === true) 
+    messageValid();
+    if(firstNameBool === true && lastNameBool === true  && emailBool === true && messageBool === true) 
     {
-        alert('envoy')
-        console.log(firstNameBool)
+        console.log(firstName.value)
+        console.log(lastName.value)
+        console.log(email.value)
+        console.log(message.value)
     }
     else {
       e.preventDefault('');

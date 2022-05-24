@@ -46,105 +46,95 @@ class App {
             this.likePrice.appendChild(likePriceModel.render())
 
 
+// ecouter le clavier pour ouvrir la modal photo
+const keyCodes = {
+    enter: 13,
+    escape: 27,
+  };
+  const listenKeyboard = document.getElementById('keyboard')
+
+
+
+
         //tri
 
 
 
-        let tabMedia = []
+       
         const triage = new Triage()
         this.tri.appendChild(triage.render())
 
   
-        let value = 0;
-        var med = medias
+        let value = "0" ;
+        var result = 0
         const triage2 = document.getElementById('valuetriage')
-        triage2.addEventListener('change', (media,mediaSection)=>{
-            let model
-            value = triage2.value 
-            if (value ===  "1")
-            {
-                console.log(value)
-                med = medias.sort((a,b)=> a.likes - b.likes)
-                med.forEach((media) => {
-                    let mediaModel;
-        
-                    if (media.video) 
-                    {
-                        mediaModel = new multimedia(media, photographer[0], sliceName, 'video')
-                    }
-                    else 
-                    {
-                        mediaModel = new multimedia(media, photographer[0], sliceName, 'image')
-                    }
-                    this.mediaSection.appendChild(mediaModel.render());
-                    
-                      tabMedia.push(mediaModel)
-                });
-            }
-            
-            if (value ===  '2')
-            {
-                 med = medias.sort(function(a, b){
-                     return a.date.localeCompare(b.date);
-                 })
-                 med.forEach((media) => {
-                    let mediaModel;
-        
-                    if (media.video) 
-                    {
-                        mediaModel = new multimedia(media, photographer[0], sliceName, 'video')
-                    }
-                    else 
-                    {
-                        mediaModel = new multimedia(media, photographer[0], sliceName, 'image')
-                    }
-                    this.mediaSection.appendChild(mediaModel.render());
-                    
-                      tabMedia.push(mediaModel)
-                });
-            }
-
-            if (value ===  '3')
-            {
-                med =  medias.sort(function(a, b){
-                    return a.title.localeCompare(b.title);
-                })
-                med.forEach((media) => {
-                    let mediaModel;
-        
-                    if (media.video) 
-                    {
-                        mediaModel = new multimedia(media, photographer[0], sliceName, 'video')
-                    }
-                    else 
-                    {
-                        mediaModel = new multimedia(media, photographer[0], sliceName, 'image')
-                    }
-                    this.mediaSection.appendChild(mediaModel.render());
-                    
-                      tabMedia.push(mediaModel)
-                });
-            }
-        }) 
-
-
+       
+        let tabMedia = []
         medias.forEach((media) => {
             let mediaModel;
-
+        if (value === "0")
+        {
             if (media.video) 
             {
                 mediaModel = new multimedia(media, photographer[0], sliceName, 'video')
+                
             }
             else 
             {
                 mediaModel = new multimedia(media, photographer[0], sliceName, 'image')
+               
             }
-            this.mediaSection.appendChild(mediaModel.render());
             
-              tabMedia.push(mediaModel)
-        });
+            this.mediaSection.appendChild(mediaModel.render());
+        }
+        triage2.addEventListener('change', (media,mediaSection)=>{
+            document.querySelector(".photographer_media").innerHTML=""
+            let model
+            value = triage2.value 
+            if (value ===  "1") {
+                console.log(value)
+                result = medias.sort((a,b)=> a.likes - b.likes)
+            }
 
+            if (value ===  '2') {
+                 result = medias.sort(function(a, b){
+                     return a.date.localeCompare(b.date);
+                 })
+            }
+            if (value ===  '3') {
+                result = medias.sort(function(a, b) {
+                    return a.title.localeCompare(b.title);
+                })
+               
+            }
+            let tabmedia = [];
+            result.forEach((media) => {
+                let mediaModel;
+              
+                if (media.video) 
+                {
+                    mediaModel =  new multimedia(media, photographer[0], sliceName, 'video')
+                    
+                }
+                else 
+                {
+                    mediaModel =  new multimedia(media, photographer[0], sliceName, 'image')
+                }
+                
+                this.mediaSection.appendChild(mediaModel.render());
+                tabmedia.push(mediaModel)    
+                this.likesMedia = new IncrementationLikes(photographerModel,tabmedia,sumLikes)  
+                console.log(tabmedia)
+
+            });
+        }) 
+    
+        tabMedia.push(mediaModel)
         this.likesMedia = new IncrementationLikes(photographerModel,tabMedia,sumLikes)
+        console.log(tabMedia)
+    });
+
+    
         this.modalMedia = new ModalMedia(photographerModel, tabMedia)
 
     }

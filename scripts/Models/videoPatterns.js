@@ -44,13 +44,13 @@ class Video {
     render(data) {
         const article = document.createElement('article');
         article.innerHTML = `
-        <video  class= "" src= "${this.video}" onclick=app.modalMedia.launchModalPhoto(${this._id})></video>
+        <video  class= "" tabindex="4" src= "${this.video}" onclick=app.modalMedia.launchModalPhoto(${this._id})></video>
         <footer>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 
                 <button id= "buttonLikes" onclick=app.likesMedia.afficheLikes(${this._likes},${this._id})  class="button_heart">
                     <p id= "likes"  class="like_margin">${this._likes}</p>
-                    <i class="fas fa-heart "></i>
+                    <i tabindex="5" class="fas fa-heart "></i>
                 </button>
             </div>
         </footer>`

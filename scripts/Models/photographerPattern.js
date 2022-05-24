@@ -40,10 +40,8 @@ class Photographers {
     render() {
         const article = document.createElement('article');
         article.innerHTML = `
-        <a href="./photographer.html?${this.id}">
+        <a href="./photographer.html?${this.id}" alt= "${this.name}">
         <img src= ${this.portrait}>
-        </a>
-        <a href = "./photographer.html?${this.id}" >
         <h2 id = ${this.id}>
             ${this.name}
         </h2>
@@ -69,8 +67,8 @@ class Photographers {
           <p id = "cityCountry">${this.city}, ${this.country}</p>
           <p id = "tagline">${this.tagline} </p>
         </div>
-            <button class="contact_button" onclick="launchModal()">Contactez-moi</button>
-            <img id = "photoProfile" src="${this.portrait}"></img>
+            <button tabindex="2" alt ="Contact Me" role="dialog" class="contact_button" onclick="launchModal()">Contactez-moi</button>
+            <img id = "photoProfile" src="${this.portrait}" alt="${this.name}"></img>
         `
         return article
     }

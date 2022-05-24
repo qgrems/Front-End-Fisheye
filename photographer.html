@@ -14,11 +14,11 @@
 
 <body>
   <header>
-    <a href="index.html">
-      <img src="assets/images/logo.png" class="logo" />
+    <a  tabindex= "1" href="index.html">
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
     </a>
   </header>
-  <main id="main">
+  <main id="main" aria-hidden="true">
     <div class="photograph-header"></div>
     <div class="triage"></div>
     <div class="photographer_media"></div>
@@ -26,12 +26,14 @@
   </main>
 
 
-  <div id="contact_modal">
+  <div id="contact_modal" aria-hidden="false">
 
-    <div class="modal" id="sendMessage">
-      <header>
-        <h2>Contactez-moi</h2>
-        <img class="closeModal" src="assets/icons/close.svg" onclick="closeModal()" />
+    <div class="modal" id="sendMessage" >
+      <header class="modalTitle" >
+        <div class="spaceTitleX">
+          <h>Contactez-moi</h2>
+          <img class="closeModal" src="assets/icons/close.svg" onclick="closeModal()" />
+        </div>
       </header>
 
       <form name="" action="" method="get" onsubmit="">
@@ -64,6 +66,7 @@
           <label>Votre message</label>
           <br>
           <input class="text-control messagesize" type="text" id="message">
+          <div id="erreur_message"></div>
           <br>
         </div>
 
