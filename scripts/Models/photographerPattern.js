@@ -42,6 +42,8 @@ class Photographers {
         article.innerHTML = `
         <a href="./photographer.html?${this.id}" alt= "${this.name}">
         <img src= ${this.portrait}>
+        
+        <a href="./photographer.html?${this.id}" alt= "${this.name}">
         <h2 id = ${this.id}>
             ${this.name}
         </h2>
@@ -59,7 +61,6 @@ class Photographers {
         return article
     }
     renderBandeau() {
-
         const article = document.createElement('div');
         article.innerHTML = `
         <div class="photograph-header_history">
@@ -67,7 +68,8 @@ class Photographers {
           <p id = "cityCountry">${this.city}, ${this.country}</p>
           <p id = "tagline">${this.tagline} </p>
         </div>
-            <button tabindex="2" alt ="Contact Me" role="dialog" class="contact_button" onclick="launchModal()">Contactez-moi</button>
+            <button tabindex="2" alt ="Contact Me" role="dialog" class="contact_button" onclick=launchModal()>Contactez-moi</button>
+            
             <img id = "photoProfile" src="${this.portrait}" alt="${this.name}"></img>
         `
         return article

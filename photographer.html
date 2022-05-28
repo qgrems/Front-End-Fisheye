@@ -30,18 +30,16 @@
 
     <div class="modal" id="sendMessage" >
       <header class="modalTitle" >
-        <div class="spaceTitleX">
-          <h>Contactez-moi</h2>
-          <img class="closeModal" src="assets/icons/close.svg" onclick="closeModal()" />
-        </div>
+          <h2>Contactez-moi<br></h2>
+          <button alt= "Close Contact form"id="tab" onclick="closeModal()"><img class="closeModal" src="assets/icons/close.svg"  /></button>
       </header>
 
       <form name="" action="" method="get" onsubmit="">
-
+        <h2 id="namePhotographer"></h2>
         <div class="formData">
           <label>Prénom</label>
           <br>
-          <input class="text-control" type="text" id="firstName" name="first">
+          <input alt="First name" class="text-control" type="text" id="firstName" name="first">
           <div id="erreur_firstName"></div>
           <br>
         </div>
@@ -49,7 +47,7 @@
         <div class="formData">
           <label>Nom</label>
           <br>
-          <input class="text-control" type="text" id="lastName" name="last">
+          <input alt="Last name" class="text-control" type="text" id="lastName" name="last">
           <div id="erreur_lastName"></div>
           <br>
         </div>
@@ -57,7 +55,7 @@
         <div class="formData">
           <label>Email</label>
           <br>
-          <input class="text-control" type="email" id="mail" name="email">
+          <input alt="Email" class="text-control" type="email" id="mail" name="email">
           <div id="erreur_email"></div>
           <br>
         </div>
@@ -65,25 +63,26 @@
         <div class="formData ">
           <label>Votre message</label>
           <br>
-          <input class="text-control messagesize" type="text" id="message">
+          <textarea alt="Your message" class="text-control messagesize" type="text" id="message"></textarea>
           <div id="erreur_message"></div>
           <br>
         </div>
 
-        <button class="contact_button" type="submit">Envoyer</button>
+        <button alt="Send" class="contact_button" type="submit">Envoyer</button>
 
       </form>
     </div>
   </div>
 
-  <div id="picture_modal" class="modalPict">
-    <div class="modalPhoto">
+  <div id="picture_modal"  class="modalPict">
+    <div class="modalPhoto" role="dialog" aria-label="image closeup view">
       <section class="modalSize">
-        <button class="precedent_suivant" id="precedent"> &lt; </button>
-        <div id="linkImg"></div>
-        <button class="precedent_suivant" id="suivant"> &gt;
+        <button alt="Previous image" class="precedent_suivant" id="precedent"> &lt; </button>
+        <div  alt="lilac breasted roller" id="linkImg"></div>
+        <button alt="Next image" class="precedent_suivant" id="suivant"> &gt;
         </button>
-        <button class=" closePhoto " onclick="app.modalMedia.closeModalPhoto()">X</button>
+        <button alt="close dialog" class=" closePhoto " onclick="app.modalMedia.closeModalPhoto()">X</button>
+        <p id="titleImage"></p>
       </section>
     </div>
   </div>
@@ -94,13 +93,14 @@
   <script src="scripts/utils/modal-contact.js"></script>
   <script src="scripts/utils/lightbox-modal.js"></script>
   <script src="scripts/utils/sliceName.js"></script>
+  <script src="scripts/utils/tabindex.js"></script>
 
 
   <script src="scripts/Models/imagePattern.js"></script>
   <script src="scripts/Models/videoPatterns.js"></script>
   <script src="scripts/Models/photographerPattern.js"></script>
   <script src="scripts/Models/likesprice.js"></script>
-  <script src="scripts/Models/modalPhoto.js"></script>
+
   <script src="scripts/Models/incrementLikes.js"></script>
   <script src="scripts/Models/tri.js"></script>
   
@@ -108,8 +108,6 @@
   <script src="scripts/API/photographerApi.js"></script>
 
   <script src="scripts/pages/photographer.js"></script>
-
-
 
 </body>
 

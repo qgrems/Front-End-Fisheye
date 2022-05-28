@@ -1,27 +1,35 @@
 
+
+
 // DOM Elements
 const modalbg = document.querySelector("#contact_modal");
 const modalBtn = document.querySelectorAll(".contact_button");
 const contact = document.getElementById('contact_modal')
 const main = document.getElementById('main')
-
-const focusableElementsArray = [
-  '[href]',
-  'button:not([disabled])',
-  'input:not([disabled])',
-  '[main]:not([main="-1"])',
-];
+const Name = document.getElementById('namePhotographer')
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-
+const keyCodes = {
+  escape:27,
+  enter:13,
+};
 
 
 // launch modal form
 function launchModal() {
   main.tabIndex = -1;
   modalbg.tabIndex =1;
+  
   modalbg.style.display = "block";
+  document.getElementById('namePhotographer').innerHTML = "fdsafsafas"
+  const tab = document.getElementById('tab').focus()
+  main.ariaHidden = true
+  modalbg.addEventListener('keydown', (event) => {
+    if (event.which === keyCodes.escape) {
+      closeModal();
+    }      
+  });
   
 }
 

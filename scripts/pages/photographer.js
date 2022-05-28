@@ -45,22 +45,7 @@ class App {
             const likePriceModel = new LikesPrice(allLikes(sumLikes), photographer[0].price)
             this.likePrice.appendChild(likePriceModel.render())
 
-
-// ecouter le clavier pour ouvrir la modal photo
-const keyCodes = {
-    enter: 13,
-    escape: 27,
-  };
-  const listenKeyboard = document.getElementById('keyboard')
-
-
-
-
         //tri
-
-
-
-       
         const triage = new Triage()
         this.tri.appendChild(triage.render())
 
@@ -68,20 +53,29 @@ const keyCodes = {
         let value = "0" ;
         var result = 0
         const triage2 = document.getElementById('valuetriage')
+
+        let tableauMedia = []
+        tableauMedia.push(medias)
+
+        
+
+    
        
         let tabMedia = []
         medias.forEach((media) => {
             let mediaModel;
         if (value === "0")
         {
+            
             if (media.video) 
             {
-                mediaModel = new multimedia(media, photographer[0], sliceName, 'video')
-                
+                mediaModel = new multimedia(media, photographer[0], sliceName, 'video',tabIndex(tableauMedia)
+                )
             }
             else 
             {
-                mediaModel = new multimedia(media, photographer[0], sliceName, 'image')
+                mediaModel = new multimedia(media, photographer[0], sliceName, 'image',tabIndex(tableauMedia)
+                )
                
             }
             
@@ -91,8 +85,8 @@ const keyCodes = {
             document.querySelector(".photographer_media").innerHTML=""
             let model
             value = triage2.value 
+            
             if (value ===  "1") {
-                console.log(value)
                 result = medias.sort((a,b)=> a.likes - b.likes)
             }
 
@@ -113,30 +107,44 @@ const keyCodes = {
               
                 if (media.video) 
                 {
-                    mediaModel =  new multimedia(media, photographer[0], sliceName, 'video')
-                    
+                    mediaModel =  new multimedia(media, photographer[0], sliceName, 'video',tabIndex(tableauMedia))  
                 }
                 else 
                 {
-                    mediaModel =  new multimedia(media, photographer[0], sliceName, 'image')
+                    mediaModel =  new multimedia(media, photographer[0], sliceName, 'image',tabIndex(tableauMedia))
                 }
                 
                 this.mediaSection.appendChild(mediaModel.render());
-                tabmedia.push(mediaModel)    
-                this.likesMedia = new IncrementationLikes(photographerModel,tabmedia,sumLikes)  
-                console.log(tabmedia)
-
+                tabmedia.push(mediaModel)
+                tabIndex(tabmedia)    
+                this.likesMedia = new IncrementationLikes(photographerModel,tabmedia,sumLikes) 
+                
             });
+            
         }) 
-    
+        
         tabMedia.push(mediaModel)
+        tabIndex(tabMedia)    
         this.likesMedia = new IncrementationLikes(photographerModel,tabMedia,sumLikes)
-        console.log(tabMedia)
+        this.modalMedia = new ModalMedia(photographerModel, tabMedia,media)
+        
     });
+      //ouverture du modal photo avec la touche entrée
+      
+    const keyCodes = {
+        escape:27,
+        enter:13,
+    };
 
-    
-        this.modalMedia = new ModalMedia(photographerModel, tabMedia)
-
+    this.mediaSection.addEventListener('keydown', (event) => {
+        if (event.which === keyCodes.enter) {
+            var evt=new Event("click")
+            document.getElementById("idImage").dispatchEvent(evt);
+        }
+        if (event.which === keyCodes.escape) {
+            app.modalMedia.closeModalPhoto();
+        }     
+    })
     }
 }
 

@@ -1,5 +1,5 @@
 class Image {
-    constructor(data, sliceName, dataphotographer) {
+    constructor(data, sliceName, dataphotographer,tableauMedia) {
         this._type = 'photo'
         this._id = data.id
         this._photographerId = data.photographerId
@@ -10,6 +10,7 @@ class Image {
         this._price = data.price
         this._slice = sliceName
         this._photographerName = dataphotographer.name
+        this._tableauMedia = tableauMedia
     }
     get photographerName() {
         return this._photographerName
@@ -50,27 +51,29 @@ class Image {
     get nameslice() {
         return this._slice
     }
-
+    
     render() {
         const article = document.createElement('article');
         article.innerHTML = `
-        <img id="keyboard" class="openModal" tabindex="4"src= "${this.image}" onclick=app.modalMedia.launchModalPhoto(${this._id})>
+        <img  id="idImage"  tabindex="${this._tableauMedia}  class="openModal"  src="${this.image}" onclick=app.modalMedia.launchModalPhoto(${this._id})>
         <footer>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 
-                <button   id= "buttonLikes" onclick=app.likesMedia.afficheLikes(${this._likes},${this._id})  class="button_heart">
+                <button  tabindex="-1" id= "buttonLikes" onclick=app.likesMedia.afficheLikes(${this._likes},${this._id})  class="button_heart">
                 <p id= "likes" class="like_margin addLike">${this.likes}</p>
-                    <i tabindex="5" class="fas fa-heart"></i>
+                    <i id="heart" tabindex="${this._tableauMedia}"aria-label="likes" class="fas fa-heart"></i>
                 </button>
             </div>
         </footer>`
         return article
+        
     }
     renderModal() {
         const article = document.createElement('img');
         article.src = `${this.image}`
         return article
     }
+  //ouverture du modal photo avec la touche entrée
 
     renderoui()
     {
