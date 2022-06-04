@@ -1,6 +1,5 @@
 class App
 {
-    // Penser à remplacer par les données récupérées dans le json
     constructor()
     {
         this.photographersSection = document.querySelector(".photographer_section");

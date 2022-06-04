@@ -18,9 +18,6 @@ const keyCodes = {
 
 // launch modal form
 function launchModal() {
-  main.tabIndex = -1;
-  modalbg.tabIndex =1;
-  
   modalbg.style.display = "block";
   document.getElementById('namePhotographer').innerHTML = "fdsafsafas"
   const tab = document.getElementById('tab').focus()
@@ -34,8 +31,7 @@ function launchModal() {
 }
 
 //close modal
-function closeModal() {
-
+function closeModal(){
   modalbg.style.display = "none";
 }
 

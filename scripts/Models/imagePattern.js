@@ -55,7 +55,7 @@ class Image {
     render() {
         const article = document.createElement('article');
         article.innerHTML = `
-        <img  id="idImage"  tabindex="${this._tableauMedia}  class="openModal"  src="${this.image}" onclick=app.modalMedia.launchModalPhoto(${this._id})>
+        <img  id="image_${this._id}"  tabindex="${this._tableauMedia}  class="openModal"  src="${this.image}" onkeydown=app.modalMedia.keyDown(event,${this._id}) onclick=app.modalMedia.launchModalPhoto(${this._id})>
         <footer>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 

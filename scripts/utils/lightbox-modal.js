@@ -5,6 +5,7 @@ class ModalMedia {
     this._tabMedia = tabMedia
     this.oModal = document.querySelector(".modalPict");
     this.mediaSection = document.querySelector(".photographer_media");
+    this.display = false
   }
   get photographe() {
     return this._photographe
@@ -19,20 +20,27 @@ class ModalMedia {
   launchModalPhoto(imageId) 
   {
     let indexMedia
-    let titleMedia
     console.log(imageId)
     //indexMedia pour prendre la position de la photo pour afficher la bonne dans la lightModal 
     indexMedia = this.tabMedia.findIndex(e => e.id === imageId)
-    titleMedia = this.tabMedia.findIndex(e => e.title === imageId)
     this.oModal.style.display = "block";
-    this.afficheMedia(indexMedia,titleMedia)
+    this.afficheMedia(indexMedia)
+    this.display = true
   }
 
   closeModalPhoto() {
     this.oModal.style.display = "none";
+    this.display = false
   }
 
-
+  keyDown(e, idImage)
+  {
+    if (e.which === keyCodes.enter) {
+      var evt=new Event("click")
+      this.launchModalPhoto(idImage)
+  }
+    
+  }
   //fonction suivant et precedent pour changer d'image en fonction de l'index(position de l'image)
   precedent(index) {
     index--
@@ -51,7 +59,7 @@ class ModalMedia {
   }
 
   //fonction qui affiche et change l'image dans la lightbox
-  afficheMedia(index,titleMedia) {
+  afficheMedia(index) {
     // constante pour les touches du clavier
     const keyCodes = {
       escape:27,
@@ -61,7 +69,7 @@ class ModalMedia {
   };
 
     document.getElementById("linkImg").innerHTML = ""
-    document.getElementById("titleImage").innerHTML = this._title
+    document.getElementById("titleImage").innerHTML = this.tabMedia[index].title
 
     //affiche l'image en fonction de son index
     document.getElementById("linkImg").appendChild(this.tabMedia[index].renderModal())
