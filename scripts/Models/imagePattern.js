@@ -75,11 +75,5 @@ class Image {
     }
   //ouverture du modal photo avec la touche entrée
 
-    renderoui()
-    {
-        const article = document.createElement('p');
-        article.className = `${this.image}`
-        return article
-    }
-    
+
 }

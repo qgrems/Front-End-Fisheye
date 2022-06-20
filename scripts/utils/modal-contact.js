@@ -14,12 +14,15 @@ const keyCodes = {
   escape:27,
   enter:13,
 };
-
+function photographersName(photographerName)
+{
+  document.getElementById('namePhotographer').innerHTML = photographerName
+}
 
 // launch modal form
-function launchModal() {
+function launchModal(photographerName) {
   modalbg.style.display = "block";
-  document.getElementById('namePhotographer').innerHTML = "fdsafsafas"
+  photographersName(photographerName)
   const tab = document.getElementById('tab').focus()
   main.ariaHidden = true
   modalbg.addEventListener('keydown', (event) => {

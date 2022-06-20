@@ -10,7 +10,6 @@ class App
     async main() 
     {
         const photographersdata = await this.photographerApi.getPhotographers()
-        console.log(photographersdata)
         photographersdata.photographers.forEach((photographer) => {
             const photographerModel = new Photographers(photographer);
             const userCardDOM = photographerModel.render();

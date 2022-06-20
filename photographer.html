@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang = "fr">
 
 <head>
   <script src="https://kit.fontawesome.com/2dfd58bbfe.js" crossorigin="anonymous"></script>
@@ -31,44 +31,44 @@
     <div class="modal" id="sendMessage" >
       <header class="modalTitle" >
           <h2>Contactez-moi<br></h2>
-          <button alt= "Close Contact form"id="tab" onclick="closeModal()"><img class="closeModal" src="assets/icons/close.svg"  /></button>
+          <button id="tab" onclick="closeModal()"><img class="closeModal" src="assets/icons/close.svg" alt= "Close Contact form"/></button>
       </header>
 
       <form name="" action="" method="get" onsubmit="">
         <h2 id="namePhotographer"></h2>
         <div class="formData">
-          <label>Prénom</label>
+          <label for="firstName">Prénom</label>
           <br>
-          <input alt="First name" class="text-control" type="text" id="firstName" name="first">
+          <input title="First name" class="text-control" id="firstName" name="first">
           <div id="erreur_firstName"></div>
           <br>
         </div>
 
         <div class="formData">
-          <label>Nom</label>
+          <label for="lastName">Nom</label>
           <br>
-          <input alt="Last name" class="text-control" type="text" id="lastName" name="last">
+          <input title="Last name" class="text-control" id="lastName" name="last">
           <div id="erreur_lastName"></div>
           <br>
         </div>
 
         <div class="formData">
-          <label>Email</label>
+          <label for="mail">Email</label>
           <br>
-          <input alt="Email" class="text-control" type="email" id="mail" name="email">
+          <input title="Email" class="text-control" type="email" id="mail" name="email">
           <div id="erreur_email"></div>
           <br>
         </div>
 
         <div class="formData ">
-          <label>Votre message</label>
+          <label for="message">Votre message</label>
           <br>
-          <textarea alt="Your message" class="text-control messagesize" type="text" id="message"></textarea>
+          <textarea alt="Your message" class="text-control messagesize"  id="message"></textarea>
           <div id="erreur_message"></div>
           <br>
         </div>
 
-        <button alt="Send" class="contact_button" type="submit">Envoyer</button>
+        <button alt="Send" class="send_button" type="submit">Envoyer</button>
 
       </form>
     </div>
@@ -96,7 +96,7 @@
   <script src="scripts/utils/lightbox-modal.js"></script>
   <script src="scripts/utils/sliceName.js"></script>
   <script src="scripts/utils/tabindex.js"></script>
-
+  <script src="scripts/Models/nameModal.js"></script>
 
   <script src="scripts/Models/imagePattern.js"></script>
   <script src="scripts/Models/videoPatterns.js"></script>

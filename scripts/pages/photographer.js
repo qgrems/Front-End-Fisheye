@@ -11,7 +11,7 @@ class App {
 
 
     async main() {
-        //chercher url search param pour plus tard w3school
+        //chercher url
         const queryString_url_id = window.location.search;
         // transformation de l' id en nombre et couper pour enlever '?' lors de la recuperation
         var leId = Number(queryString_url_id.slice(1));
@@ -21,9 +21,6 @@ class App {
         // filtrer les data avec le id de l' image cliqué
         const photographer = mediaData.photographers.filter(photographer => photographer.id === leId)
         const medias = mediaData.media.filter(medias => medias.photographerId === leId)
-
-
-    
 
         //header
         const photographerModel = new Photographers(photographer[0])
@@ -118,7 +115,6 @@ class App {
                     mediaModel =  new multimedia(media, photographer[0], sliceName, 'image',tabIndex(tableauMedia))
                     
                 }
-                
                 this.mediaSection.appendChild(mediaModel.render());
                 tabmedia.push(mediaModel)
                 tabIndex(tabmedia)    
