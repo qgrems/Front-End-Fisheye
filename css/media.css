@@ -40,7 +40,7 @@ a{
     font-weight: bold;
 }
 
-.photographer_media article footer
+.photographer_media article div
 {
     display: flex;
     justify-content: space-between;
