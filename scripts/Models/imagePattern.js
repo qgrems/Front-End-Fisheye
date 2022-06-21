@@ -1,4 +1,4 @@
-class Image {
+class Images {
   constructor(data, sliceName, dataphotographer, tableauMedia) {
     this._type = 'photo'
     this._id = data.id

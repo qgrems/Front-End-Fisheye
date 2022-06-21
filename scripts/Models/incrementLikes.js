@@ -8,9 +8,6 @@ class IncrementationLikes {
   get id() {
     return this._id
   }
-  get nbrLikes() {
-    this._nbrLikes
-  }
   get photographe() {
     return this._photographe
   }

@@ -9,69 +9,69 @@ class Photographers {
     this._portrait = data.portrait
     this._likes = data.likes
   }
-  get name () {
+  get name() {
     return this._name
   }
 
-  get id () {
+  get id() {
     return this._id
   }
 
-  get city () {
+  get city() {
     return this._city
   }
 
-  get country () {
+  get country() {
     return this._country
   }
 
-  get tagline () {
+  get tagline() {
     return this._tagline
   }
 
-  get price () {
+  get price() {
     return this._price
   }
 
-  get portrait () {
+  get portrait() {
     return `SamplePhotos/PhotographersIDPhotos/${this._portrait}`
   }
 
-  render () {
+  render() {
     const article = document.createElement('article')
     article.innerHTML = `
-        <a href="./photographer.html?${this.id}">
-        <img alt="${this.name}" src= ${this.portrait} >
-        
-        <a href="./photographer.html?${this.id}" aria-label= "${this.name}">
-        <h2 id = ${this.id}>
-            ${this.name}
-        </h2>
-        </a>
-        <h3>
-            ${this.city}, ${this.country}
-        </h3>
-        <h4> 
-            ${this.tagline}
-        </h4>
-        <p>
-        ${this.price}/jour
-        </p>`
+          <a href="./photographer.html?${this.id}">
+          <img alt="${this.name}" src= ${this.portrait} >
+          
+          <a href="./photographer.html?${this.id}" aria-label= "${this.name}">
+          <h2 id = ${this.id}>
+              ${this.name}
+          </h2>
+          </a>
+          <h3>
+              ${this.city}, ${this.country}
+          </h3>
+          <h4> 
+              ${this.tagline}
+          </h4>
+          <p>
+          ${this.price}/jour
+          </p>`
 
     return article
   }
-  renderBandeau () {
+  renderBandeau() {
     const article = document.createElement('div')
     article.innerHTML = `
-        <div class="photograph-header_history">
-          <h1 id ="name_photographer" >${this.name}</h1>
-          <p id = "cityCountry">${this.city}, ${this.country}</p>
-          <p id = "tagline">${this.tagline} </p>
-        </div>
-            <button tabindex="2" aria-label="Contact Me" role="dialog" class="contact_button" onclick='launchModal("${this.name}")'>Contactez-moi</button>
-            
-            <img id = "photoProfile" src="${this.portrait}" alt="${this.name}"></img>
-        `
+          <div class="photograph-header_history">
+            <h1 id ="name_photographer" >${this.name}</h1>
+            <p id = "cityCountry">${this.city}, ${this.country}</p>
+            <p id = "tagline">${this.tagline} </p>
+          </div>
+              <button tabindex="2" aria-label="Contact Me" role="dialog" class="contact_button" onclick='launchModal("${this.name}")'>Contactez-moi</button>
+              
+              <img id = "photoProfile" src="${this.portrait}" alt="${this.name}"></img>
+          `
     return article
   }
 }

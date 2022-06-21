@@ -45,11 +45,11 @@ class Video {
   render() {
     const article = document.createElement('article')
     article.innerHTML = `
-        <video aria-label="${this.title}"  tabindex="${this._tableauMedia}" src= "${this.video}" onclick=app.modalMedia.launchModalPhoto(${this._id})></video>
+        <video aria-label="${this.title}"  tabindex="${this._tableauMedia}" src= "${this.video}"onkeydown=app.modalMedia.keyDown(event,${this._id}) onclick=app.modalMedia.launchModalPhoto(${this._id})></video>
         <div>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 
-                <button tabindex="-1" class= "buttonLikes" onclick=app.likesMedia.afficheLikes(${this._likes},${this._id})  class="button_heart">
+                <button tabindex="-1" class= "buttonLikes button_heart" onclick=app.likesMedia.afficheLikes(${this._likes},${this._id})  class="button_heart">
                     <p class= "likes"  class="like_margin">${this._likes}</p>
                     <em   aria-label= "likes" tabindex="${this._tableauMedia}" class="fas fa-heart "></em>
                 </button>
