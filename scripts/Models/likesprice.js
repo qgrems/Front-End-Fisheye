@@ -21,7 +21,7 @@ class LikesPrice
         section.innerHTML=`
           <div class="like_heart">
           <p id = "like" class="price">${this.likes}</p> 
-           <i  class = "full_likes fas fa-heart"></i>
+           <em  class = "full_likes fas fa-heart"></em>
           </div>
           <div class="price">${this.price}€ / jour</div>`
         return section

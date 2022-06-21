@@ -20,7 +20,6 @@ class ModalMedia {
   launchModalPhoto(imageId) 
   {
     let indexMedia
-    console.log(imageId)
     //indexMedia pour prendre la position de la photo pour afficher la bonne dans la lightModal 
     indexMedia = this.tabMedia.findIndex(e => e.id === imageId)
     this.oModal.style.display = "block";

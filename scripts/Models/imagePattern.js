@@ -54,17 +54,18 @@ class Image {
     
     render() {
         const article = document.createElement('article');
+
         article.innerHTML = `
-        <img  id="image_${this._id}"  tabindex="${this._tableauMedia}  class="openModal"  src="${this.image}" onkeydown=app.modalMedia.keyDown(event,${this._id}) onclick=app.modalMedia.launchModalPhoto(${this._id})>
-        <footer>
+        <img alt="${this.title}" id="image_${this._id}"  tabindex="${this._tableauMedia}  class="openModal"  src="${this.image}" onkeydown=app.modalMedia.keyDown(event,${this._id}) onclick=app.modalMedia.launchModalPhoto(${this._id})>
+        <div>
             <h2>${this._title}</h2>
             <div class="footer_heart_icon"> 
                 <button  tabindex="-1" id= "buttonLikes" onclick=app.likesMedia.afficheLikes(${this._likes},${this._id})  class="button_heart">
                 <p id= "likes" class="like_margin addLike">${this.likes}</p>
-                    <i id="heart" tabindex="${this._tableauMedia}"aria-label="likes" class="fas fa-heart"></i>
+                    <em id="heart" aria-label="likes" tabindex="${this._tableauMedia}"aria-label="likes" class="fas fa-heart"></em>
                 </button>
             </div>
-        </footer>`
+        </div>`
         return article
         
     }
