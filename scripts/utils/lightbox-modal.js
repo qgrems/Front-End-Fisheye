@@ -19,7 +19,7 @@ class ModalMedia {
 
   launchModalPhoto(imageId) {
     let indexMedia
-    //indexMedia pour prendre la position de la photo pour afficher la bonne dans la lightModal
+    // indexMedia pour prendre la position de la photo pour afficher la bonne dans la lightModal
     indexMedia = this.tabMedia.findIndex((e) => e.id === imageId)
     this.oModal.style.display = 'block'
     this.afficheMedia(indexMedia)
@@ -33,7 +33,7 @@ class ModalMedia {
 
   keyDown(e, idImage) {
     if (e.which === keyCodes.enter) {
-      var evt = new Event('click')
+      new Event('click')
       this.launchModalPhoto(idImage)
     }
   }

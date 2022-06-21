@@ -1,4 +1,3 @@
-let i = 0
 class IncrementationLikes {
   constructor(photographe, medias, nbrLikes) {
     this._photographe = photographe
@@ -38,7 +37,7 @@ class IncrementationLikes {
       this.decrementTotalLikes(this._nbrLikes)
     }
   }
-  incrementTotalLikes(likesMedia) {
+  incrementTotalLikes() {
     const allLikes = document.querySelectorAll('#like')
     const addlikes = Array.from(allLikes, (e) => Number(e.innerText))
     const sumValue = addlikes.reduce(
@@ -46,7 +45,7 @@ class IncrementationLikes {
     )
     like.innerText = sumValue + 1
   }
-  decrementTotalLikes(likesMedia) {
+  decrementTotalLikes() {
     const allLikes = document.querySelectorAll('#like')
     const addlikes = Array.from(allLikes, (e) => Number(e.innerText))
     const sumValue = addlikes.reduce(

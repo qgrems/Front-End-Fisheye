@@ -1,15 +1,13 @@
 // DOM Elements
 const modalbg = document.querySelector('#contact_modal')
 const modalBtn = document.querySelectorAll('.contact_button')
-const contact = document.getElementById('contact_modal')
 const main = document.getElementById('main')
-const Name = document.getElementById('namePhotographer')
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener('click', launchModal))
 
 const keyCodes = {
   escape: 27,
-  enter: 13,
+  enter: 13
 }
 function photographersName(photographerName) {
   document.getElementById('namePhotographer').innerHTML = photographerName
@@ -19,7 +17,7 @@ function photographersName(photographerName) {
 function launchModal(photographerName) {
   modalbg.style.display = 'block'
   photographersName(photographerName)
-  const tab = document.getElementById('tab').focus()
+  document.getElementById('tab').focus()
   main.ariaHidden = true
   modalbg.addEventListener('keydown', (event) => {
     if (event.which === keyCodes.escape) {
@@ -32,18 +30,18 @@ function closeModal() {
   modalbg.style.display = 'none'
 }
 
-let erreur_firstName
+
 
 let firstName = document.getElementById('firstName')
 
-let erreur_lastName
+
 let lastName = document.getElementById('lastName')
 
-let erreur_email
+
 let pattern_email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 let email = document.getElementById('mail')
 
-let erreur_message
+
 let message = document.getElementById('message')
 
 let firstNameBool = false
@@ -52,7 +50,7 @@ let emailBool = false
 let messageBool = false
 
 document.getElementById('sendMessage').addEventListener('submit', function (e) {
-  function firstNameValid () {
+  function firstNameValid() {
     if (
       firstName.value === '' ||
       firstName.value.length < 3 ||

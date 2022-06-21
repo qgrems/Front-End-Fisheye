@@ -42,7 +42,7 @@ class Video {
     return this._price
   }
 
-  render(data) {
+  render() {
     const article = document.createElement('article')
     article.innerHTML = `
         <video aria-label="${this.title}"  tabindex="${this._tableauMedia}" src= "${this.video}" onclick=app.modalMedia.launchModalPhoto(${this._id})></video>
